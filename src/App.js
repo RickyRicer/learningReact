@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Counter from './Counter';
+import List from './List';
+// A functional component
+// components are functions that just
+// returns HTML
+// you can think of components as partials
+const App = () => {
+	const myFaveFoods = [ "Oatmeal", 'Chicken', "Steak"];
+	const myFaveCryptos = [ 'XRP', 'XLM', 'XDC'];
+	const msg1 = 'My favorite foods are.'
+	const msg2 = 'My favorite cryptos are.'
+	return (
+		// JSX Fragment
+		<>
+			<Counter/>
+			<List
+                myString='Rick is cool'
+                isHungry={true}
+				message={msg1}
+				items={myFaveFoods}
+                myObj={{
+                    name: 'rick',
+                    lastName: 'jucaban'
+                }}
+                clickMe={() => console.log('I was clicked')}
+			/>
+			<List
+				message={msg2}
+				items={myFaveCryptos}
+			/>
+		</>
+	);
+};
 
 export default App;
