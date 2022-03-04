@@ -1,11 +1,14 @@
 export const List = (props) => {
-    console.log(props);
-    return (
-        <>
-        <p>{props.message}</p>
-        <ul>
-            { props.items.map(item => <li>{item}</li>)}
-        </ul>
-        </>
-    );
+
+	return (
+		<>
+			<button onClick={props.clickMe}>ClickMe</button>
+			<p>{props.message}</p>
+			<ul>
+				{ props.items.map(item => <li>{item}</li>) }
+			</ul>
+		</>
+	);
 };
+
+export default List;
