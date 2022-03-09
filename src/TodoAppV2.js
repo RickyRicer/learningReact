@@ -6,11 +6,28 @@ class TodoAppV2 extends Component {
 		todos: [],
 	}
 
+	// Component will mount fires after constructor but before render
+	// the react team recommended that we do all of our data fetching
+	// inside of componentWillMount
+	componentWillMount() {
+		console.log('inside of component will mount');
+	//	 make api requests here to update the state
+	}
+
+	// ! This gets called only once!!!!!
+	// and it gets called after render is called
+	// Now, this is the most recommended place to make api requests
+	componentDidMount() {
+		console.log('inside of component did mount');
+	}
+
+
 	handleSubmit = () => {
 		const newTodo = {
 			id: this.state.todos.length + 1,
 			title: this.state.todoInput,
 		};
+
 		const newTodosState = [...this.state.todos, newTodo ];
 
 		this.setState({
@@ -24,6 +41,7 @@ class TodoAppV2 extends Component {
 	}
 
 	render() {
+		//every time state changes, render gets called again
 		return (
 			<>
 				<input
